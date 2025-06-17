@@ -1,0 +1,116 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [
+			"node_modules/**/*",
+			"*.lock"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"useEditorconfig": true,
+		"formatWithErrors": false,
+		"indentStyle": "space",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 120,
+		"attributePosition": "auto",
+		"bracketSpacing": true,
+		"ignore": [".github", ".git"]
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noUnusedImports": {
+					"level": "warn"
+				}
+			},
+			"nursery": {
+				"noNestedTernary": {
+					"level": "warn"
+				},
+				"noUselessEscapeInRegex": {
+					"level": "warn"
+				}
+			},
+			"performance": {
+				"noBarrelFile": {
+					"level": "warn"
+				}
+			},
+			"style": {
+				"useCollapsedElseIf": {
+					"level": "warn"
+				},
+				"useConsistentArrayType": {
+					"level": "warn",
+					"options": {
+						"syntax": "shorthand"
+					}
+				},
+				"useDefaultSwitchClause": {
+					"level": "warn"
+				},
+				"useEnumInitializers": {
+					"level": "off"
+				},
+				"useForOf": {
+					"level": "info"
+				}
+			},
+			"suspicious": {
+				"noEvolvingTypes": {
+					"level": "warn"
+				},
+				"useAwait": {
+					"level": "warn"
+				},
+				"useErrorMessage": {
+					"level": "warn"
+				}
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"trailingCommas": "es5",
+			"semicolons": "always",
+			"arrowParentheses": "always",
+			"bracketSameLine": false,
+			"quoteStyle": "single",
+			"attributePosition": "auto",
+			"bracketSpacing": true
+		}
+	},
+	"overrides": [
+		{
+			"include": ["./src/**/*"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useFilenamingConvention": {
+							"level": "warn",
+							"options": {
+								"filenameCases": ["kebab-case"],
+								"requireAscii": true
+							}
+						}
+					}
+				}
+			}
+		}
+	]
+}
