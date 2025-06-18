@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText as GSAPSplitText } from "gsap/SplitText";
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText as GSAPSplitText } from 'gsap/SplitText';
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
 
@@ -11,27 +11,27 @@ export interface SplitTextProps {
   delay?: number;
   duration?: number;
   ease?: string | ((t: number) => number);
-  splitType?: "chars" | "words" | "lines" | "words, chars";
+  splitType?: 'chars' | 'words' | 'lines' | 'words, chars';
   from?: gsap.TweenVars;
   to?: gsap.TweenVars;
   threshold?: number;
   rootMargin?: string;
-  textAlign?: React.CSSProperties["textAlign"];
+  textAlign?: React.CSSProperties['textAlign'];
   onLetterAnimationComplete?: () => void;
 }
 
 const SplitText: React.FC<SplitTextProps> = ({
   text,
-  className = "",
+  className = '',
   delay = 100,
   duration = 0.6,
-  ease = "power3.out",
-  splitType = "chars",
+  ease = 'power3.out',
+  splitType = 'chars',
   from = { opacity: 0, y: 40 },
   to = { opacity: 1, y: 0 },
   threshold = 0.1,
-  rootMargin = "-100px",
-  textAlign = "center",
+  rootMargin = '-100px',
+  textAlign = 'center',
   onLetterAnimationComplete,
 }) => {
   const ref = useRef<HTMLParagraphElement>(null);
@@ -40,24 +40,24 @@ const SplitText: React.FC<SplitTextProps> = ({
     const el = ref.current;
     if (!el) return;
 
-    const absoluteLines = splitType === "lines";
-    if (absoluteLines) el.style.position = "relative";
+    const absoluteLines = splitType === 'lines';
+    if (absoluteLines) el.style.position = 'relative';
 
     const splitter = new GSAPSplitText(el, {
       type: splitType,
       absolute: absoluteLines,
-      linesClass: "split-line",
+      linesClass: 'split-line',
     });
 
     let targets: Element[];
     switch (splitType) {
-      case "lines":
+      case 'lines':
         targets = splitter.lines;
         break;
-      case "words":
+      case 'words':
         targets = splitter.words;
         break;
-      case "words, chars":
+      case 'words, chars':
         targets = [...splitter.words, ...splitter.chars];
         break;
       default:
@@ -65,7 +65,7 @@ const SplitText: React.FC<SplitTextProps> = ({
     }
 
     targets.forEach((t) => {
-      (t as HTMLElement).style.willChange = "transform, opacity";
+      (t as HTMLElement).style.willChange = 'transform, opacity';
     });
 
     const startPct = (1 - threshold) * 100;
@@ -78,7 +78,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       scrollTrigger: {
         trigger: el,
         start,
-        toggleActions: "play none none none",
+        toggleActions: 'play none none none',
         once: true,
       },
       smoothChildTiming: true,
@@ -100,18 +100,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       gsap.killTweensOf(targets);
       splitter.revert();
     };
-  }, [
-    text,
-    delay,
-    duration,
-    ease,
-    splitType,
-    from,
-    to,
-    threshold,
-    rootMargin,
-    onLetterAnimationComplete,
-  ]);
+  }, [text, delay, duration, ease, splitType, from, to, threshold, rootMargin, onLetterAnimationComplete]);
 
   return (
     <p
@@ -119,7 +108,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       className={`split-parent overflow-hidden inline-block whitespace-normal ${className}`}
       style={{
         textAlign,
-        wordWrap: "break-word",
+        wordWrap: 'break-word',
       }}
     >
       {text}
