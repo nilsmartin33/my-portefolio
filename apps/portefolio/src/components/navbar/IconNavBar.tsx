@@ -5,7 +5,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import type { Theme } from '@/context/types';
 import { useTheme } from '@/context/useTheme.tsx';
 import { Languages, Moon, Sun } from 'lucide-react';
 import { useMemo } from 'react';
@@ -18,7 +17,11 @@ const Elements = ({ items }: IconNavBarProps) => {
         <button
           type="button"
           key={`${item.id}-${index}`}
-          onClick={() => item.action}
+          onClick={() => {
+            if (item.action) {
+              item.action();
+            }
+          }}
           className={`h-9 flex items-center rounded-md ${item.id === 'language' ? '' : 'p-2'}  hover:bg-accent cursor-pointer`}
         >
           <item.icon />
@@ -52,15 +55,10 @@ const LanguageSwitcher = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button
-          type="button"
-          className="flex items-center justify-center p-2 rounded-md hover:bg-accent cursor-pointer focus:outline-none"
-        >
-          <Languages className="h-5 w-5">
-            <title>Language Icon</title>
-          </Languages>
-        </button>
+      <DropdownMenuTrigger className="p-2">
+        <Languages className="h-5 w-5">
+          <title>Language Icon</title>
+        </Languages>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => changeLanguage('en')}>English</DropdownMenuItem>
@@ -73,25 +71,20 @@ const LanguageSwitcher = () => {
 
 const IconNavBar = () => {
   const { theme, setTheme } = useTheme();
-  const themeMapping = {
-    light: 'dark',
-    dark: 'system',
-    system: 'light',
-  };
-
-  const selectedTheme = themeMapping[theme] || 'light';
+  const selectedTheme = theme === 'light' ? 'dark' : 'light';
 
   const navIconItems: IconElement[] = useMemo(
     () => [
       {
         id: 'language',
         icon: () => <LanguageSwitcher />,
-        action: () => {},
       },
       {
         id: 'theme',
         icon: () => <ThemeIcon theme={theme} />,
-        action: () => setTheme(selectedTheme as Theme),
+        action: () => {
+          setTheme(selectedTheme);
+        },
       },
     ],
     [theme, selectedTheme, setTheme]
