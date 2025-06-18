@@ -54,7 +54,7 @@ jobs:
         if: steps.check_changes.outputs.build_portefolio == 'true' || steps.check_changes_main.outputs.build_portefolio == 'true'
         run: |
           cd apps/portefolio
-          yarn build:ci
+          yarn build
 
   pull-request-to-main:
     name: Create PR from dev to main
