@@ -5,6 +5,7 @@ import MyInfos from '@/components/sections/me/MyInfos.tsx';
 import WorkSection from '@/components/sections/projects/FlowingMenu.tsx';
 import Projects from '@/components/sections/projects/Projects.tsx';
 import { ThemeProvider } from '@/context/ThemeProvider.tsx';
+import './i18n/config';
 
 function App() {
   return (

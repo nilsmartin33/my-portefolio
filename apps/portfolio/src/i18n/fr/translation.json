@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "projects": "PROJETS",
+    "work": "EXPÉRIENCES",
+    "about": "À PROPOS"
+  },
+  "hero": {
+    "intro": "Bonjour ! Je suis Nils Martin.",
+    "role": "<primary>Un </primary>Ingénieur Logiciel<primary> et </primary>Développeur Full Stack",
+    "contact": "Me contacter",
+    "download": "Télécharger mon CV"
+  },
+  "title": {
+    "projects": "Projets",
+    "work": "Expériences",
+    "about": "À propos",
+    "skills": "Compétences"
+  },
+  "projects": {
+    "project1": {
+      "title": "Eido",
+      "description": "Plateforme EdTech alimentée par l'IA avec intégration OCR pour la génération automatique de quiz et de flashcards à partir de supports de cours scannés. Projet entrepreneurial full-stack construit avec une équipe de développement de six personnes."
+    },
+    "project2": {
+      "title": "Tableau de bord Grafana",
+      "description": "Stack d'observabilité Grafana personnalisée avec ingestion de données multi-sources (métriques Prometheus, logs Loki, traces Jaeger). Mise en œuvre de requêtes PromQL avancées et de variables templatées pour un filtrage dynamique et des alertes."
+    }
+  },
+  "work": {
+    "work1": {
+      "time": "4 mois",
+      "date": "Février 2024 - Mai 2024",
+      "jobTitle": "Développeur C++",
+      "description": "Amélioration du pilote de cluster C++ utilisant le protocole AERON. Réalisation d'un audit d'architecture pour déterminer et implémenter l'algorithme de hachage cohérent optimal."
+    },
+    "work2": {
+      "time": "6 mois",
+      "date": "Juillet 2022 - Décembre 2022",
+      "jobTitle": "Développeur DevOps",
+      "description": "Augmentation de l'observabilité au sein des clusters de machine learning dans le cloud au sein de l'équipe SRE4. En ajoutant des outils pour visualiser et surveiller l'ensemble des données émises."
+    },
+    "work3": {
+      "time": "1 an",
+      "date": "Février 2023 - Janvier 2024",
+      "jobTitle": "Stage d'Assistant Pédagogique",
+      "description": "Support technique et supervision pédagogique des étudiants de première et deuxième année à Epitech Bordeaux."
+    }
+  },
+  "about": {
+    "part1": "Initialement formé en comptabilité et gestion, j'ai découvert que ma véritable passion réside dans la programmation et la technologie. J'ai commencé par des langages de bas niveau pour comprendre les fondamentaux, puis je me suis tourné vers le développement web moderne avec React, TypeScript et React Native.",
+    "part4": "J'aime construire des choses qui résolvent de vrais problèmes et je suis toujours enthousiaste à l'idée d'apprendre de nouvelles technologies.",
+    "part2": "Parallèlement à mon parcours technique, j'ai également embrassé l'entrepreneuriat, ayant lancé à la fois une entreprise individuelle et une société, où j'aime expérimenter, construire et donner vie aux idées à travers des applications concrètes.",
+    "part3": "J'adore explorer le monde. J'ai récemment passé un an à étudier à Chandigarh, en Inde, ce qui a été une expérience incroyable. Ce fut une expérience qui a élargi ma perspective tant sur le plan personnel que professionnel. J'ai eu la chance de découvrir le Rajasthan et de participer à presque tous les grands événements, y compris le Kumbh Mela."
+  },
+  "services": {
+    "design": {
+      "title": "DESIGN",
+      "description": "Création d'interfaces modernes et intuitives adaptées à des exigences spécifiques. Capable d'initier des projets de zéro ou d'améliorer des designs existants, en assurant une consultation tout au long du processus."
+    },
+    "development": {
+      "title": "DÉVELOPPEMENT",
+      "description": "Construction d'applications web haute performance et réactives utilisant des technologies de pointe. Les solutions sont développées pour être robustes et évolutives, en adhérant aux exigences spécifiées."
+    },
+    "maintenance": {
+      "title": "MAINTENANCE",
+      "description": "Offre une maintenance continue pour les projets, incluant des mises à jour régulières, des corrections de bugs et des optimisations, pour assurer une performance et une fiabilité maximales."
+    },
+    "monitoring": {
+      "title": "SURVEILLANCE",
+      "description": "Fournit une surveillance en temps réel des performances des applications, en analysant les métriques clés et en anticipant les problèmes potentiels pour assurer une disponibilité maximale et la satisfaction des utilisateurs."
+    }
+  },
+  "skills": {
+    "description": "Outils que je maîtrise bien et pour lesquels je suis passionné"
+  }
+}

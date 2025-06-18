@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "projects": "PROJECTS",
+    "work": "WORK",
+    "about": "ABOUT ME"
+  },
+  "hero": {
+    "intro": "Hi ! I'm Nils Martin.",
+    "role": "<primary>A </primary>Software Engineer<primary> and</primary> Full Stack Developer",
+    "contact": "Contact Me",
+    "download": "Download my CV"
+  },
+  "title": {
+    "projects": "Projects",
+    "work": "Work",
+    "about": "About Me",
+    "skills": "Skills"
+  },
+  "projects": {
+    "project1": {
+      "title": "Eido",
+      "description": "AI-powered EdTech platform with OCR integration for automated quiz and flashcard generation from scanned course materials. Full-stack entrepreneurial project built with a 6-person development team."
+    },
+    "project2": {
+      "title": "Grafana Dashboard",
+      "description": "Custom Grafana observability stack with multi-source data ingestion (Prometheus metrics, Loki logs, Jaeger traces). Implemented advanced PromQL queries and templated variables for dynamic filtering and alerting."
+    }
+  },
+  "work": {
+    "work1": {
+      "time": "4 months",
+      "date": "February 2024 - May 2024",
+      "jobTitle": "Developer C++",
+      "description": "Enhanced C++ cluster driver using AERON protocol. Conducted architecture audit to determine and implement optimal consistent hashing algorithm."
+    },
+    "work2": {
+      "time": "6 months",
+      "date": "July 2022 - December 2022",
+      "jobTitle": "Developer Devops",
+      "description": "Increase the observability inside machine learning clusters in the cloud inside the SRE4 Team. By adding tools to visualize and monitor the entire data emitted."
+    },
+    "work3": {
+      "time": "1 year",
+      "date": "February 2023 - January 2024",
+      "jobTitle": "Pedagogical Assistant Internship",
+      "description": "Technical support and pedagogical supervision of first and second-year students at Epitech Bordeaux."
+    }
+  },
+  "about": {
+    "part1": "Originally trained in accounting and management, I discovered my true passion lies in programming and technology. I started with low-level languages to understand the fundamentals, then moved into modern web development with React, TypeScript and React Native.",
+    "part4": "I enjoy building things that solve real problems and am always excited to learn new technologies.",
+    "part2": "Alongside my technical journey, I’ve also embraced entrepreneurship—having launched both a sole proprietorship and a company—where I enjoy experimenting, building, and bringing ideas to life through real-world applications.",
+    "part3": "I love exploring the world. I recently spent a year studying in Chandigarh, India, which was an incredible It was a life-changing experience that broadened my perspective both personally and professionally. I was fortunate enough to discover Rajasthan and participate in almost all of the major events, including the Kumbh Mela."
+  },
+  "services": {
+    "design": {
+      "title": "DESIGN",
+      "description": "Crafting modern and intuitive interfaces tailored to specific requirements. Capable of initiating projects from scratch or enhancing existing designs, ensuring consultation throughout the process."
+    },
+    "development": {
+      "title": "DEVELOPMENT",
+      "description": "Building high-performance and responsive web applications using cutting-edge technologies. Solutions are developed to be robust and scalable, adhering to specified requirements"
+    },
+    "maintenance": {
+      "title": "MAINTENANCE",
+      "description": "Offering continuous maintenance for projects, including regular updates, bug fixes and optimisations, to ensure peak performance and reliability."
+    },
+    "monitoring": {
+      "title": "MONITORING",
+      "description": "Providing real-time performance monitoring of applications, analysing key metrics and anticipating potential issues to ensure maximum availability and user satisfaction."
+    }
+  },
+  "skills": {
+    "description": "Tools I’m well-versed in and passionate about"
+  }
+}

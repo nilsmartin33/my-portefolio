@@ -1,6 +1,7 @@
 import type { TextElement, TextNavBarProps } from '@/components/navbar/types';
 import { Button } from '@/components/ui/button.tsx';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Elements = ({ items }: TextNavBarProps) => {
   return (
@@ -15,31 +16,33 @@ const Elements = ({ items }: TextNavBarProps) => {
 };
 
 const TextNavBar = () => {
+  const { t } = useTranslation();
+
   const navItems: TextElement[] = useMemo(
     () => [
       {
         id: 'projects',
-        content: 'PROJECTS',
+        content: t('nav.projects'),
         action: () => {
           console.log('Navigate to Home');
         },
       },
       {
         id: 'work',
-        content: 'WORK',
+        content: t('nav.work'),
         action: () => {
           console.log('Navigate to Work');
         },
       },
       {
         id: 'about',
-        content: 'ABOUT ME',
+        content: t('nav.about'),
         action: () => {
           console.log('Navigate to About');
         },
       },
     ],
-    []
+    [t]
   );
 
   return <Elements items={navItems} />;

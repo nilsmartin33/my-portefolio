@@ -1,23 +1,21 @@
 import GradientText from '@/animations/GradientText/GradientText.tsx';
 import HeroButton from '@/components/sections/hero/HeroButton.tsx';
 import { lazy, useEffect, useState } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 
 const SplitText = lazy(() => import('@/animations/SplitText/SplitText.tsx'));
 
 const HeroContent = () => {
   const [animationKey, setAnimationKey] = useState(0);
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    if (document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        setFontsLoaded(true);
-      });
-    } else {
-      setTimeout(() => {
-        setFontsLoaded(true);
-      }, 100);
-    }
+    const loadFonts = async () => {
+      await document.fonts.ready;
+      setFontsLoaded(true);
+    };
+    loadFonts();
 
     const onScroll = () => {
       if (window.scrollY === 0) {
@@ -25,10 +23,15 @@ const HeroContent = () => {
       }
     };
     window.addEventListener('scroll', onScroll);
+
+    const handleLanguageChange = () => setAnimationKey((prev) => prev + 1);
+    i18n.on('languageChanged', handleLanguageChange);
+
     return () => {
       window.removeEventListener('scroll', onScroll);
+      i18n.off('languageChanged', handleLanguageChange);
     };
-  }, []);
+  }, [i18n]);
 
   return (
     <div className="h-full flex flex-col justify-center items-start p-4 gap-6 xl:gap-12">
@@ -37,7 +40,7 @@ const HeroContent = () => {
           {fontsLoaded && (
             <SplitText
               key={animationKey}
-              text="Hi ! I'm Nils Martin."
+              text={t('hero.intro')}
               className="text-lg sm:text-xl lg:text-2xl font-medium"
               delay={100}
               duration={0.6}
@@ -58,9 +61,7 @@ const HeroContent = () => {
           showBorder={false}
           className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-12"
         >
-          <span className="text-primary">A </span>
-          Software Engineer <span className="text-primary">and </span>
-          Full Stack Developer
+          <Trans i18nKey="hero.role" components={{ primary: <span className="text-primary" /> }} />
         </GradientText>
       </div>
       <HeroButton />

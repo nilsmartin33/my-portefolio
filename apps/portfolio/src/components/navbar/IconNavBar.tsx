@@ -1,7 +1,14 @@
 import type { IconElement, IconNavBarProps } from '@/components/navbar/types';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { useTheme } from '@/context/useTheme.tsx';
 import { Languages, Moon, Sun } from 'lucide-react';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Elements = ({ items }: IconNavBarProps) => {
   return (
@@ -11,7 +18,7 @@ const Elements = ({ items }: IconNavBarProps) => {
           type="button"
           key={`${item.id}-${index}`}
           onClick={item.action}
-          className="h-9 flex items-center rounded-md px-2 py-2 hover:bg-accent cursor-pointer"
+          className={`h-9 flex items-center rounded-md ${item.id === 'language' ? '' : 'p-2'}  hover:bg-accent cursor-pointer`}
         >
           <item.icon />
         </button>
@@ -23,15 +30,43 @@ const Elements = ({ items }: IconNavBarProps) => {
 const ThemeIcon = ({ theme }: { theme: string }) => {
   if (theme === 'light') {
     return (
-        <Moon className="w-5 h-5 transition-all duration-500 ease-in-out hover:text-blue-400 hover:rotate-12 hover:scale-110">
-          <title>Moon Icon</title>
-        </Moon>
+      <Moon className="w-5 h-5 transition-all duration-500 ease-in-out hover:text-blue-400 hover:rotate-12 hover:scale-110">
+        <title>Moon Icon</title>
+      </Moon>
     );
   }
   return (
-      <Sun className="w-5 h-5 text-yellow-400 transition-all duration-500 ease-in-out hover:text-yellow-300 hover:rotate-90 hover:scale-110">
-        <title>Sun Icon</title>
-      </Sun>
+    <Sun className="w-5 h-5 text-yellow-400 transition-all duration-500 ease-in-out hover:text-yellow-300 hover:rotate-90 hover:scale-110">
+      <title>Sun Icon</title>
+    </Sun>
+  );
+};
+
+const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = async (lang: string) => {
+    await i18n.changeLanguage(lang);
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          className="flex items-center justify-center p-2 rounded-md hover:bg-accent cursor-pointer focus:outline-none"
+        >
+          <Languages className="h-5 w-5">
+            <title>Language Icon</title>
+          </Languages>
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => changeLanguage('en')}>English</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => changeLanguage('fr')}>Français</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => changeLanguage('es')}>Español</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
@@ -43,8 +78,8 @@ const IconNavBar = () => {
     () => [
       {
         id: 'language',
-        icon: () => <Languages className="w-5 h-5"><title>Language Icon</title></Languages>,
-        action: () => console.log('Change language'),
+        icon: () => <LanguageSwitcher />,
+        action: () => {},
       },
       {
         id: 'theme',

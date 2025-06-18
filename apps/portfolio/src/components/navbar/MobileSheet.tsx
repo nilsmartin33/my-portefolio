@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { AlignRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const MobileElements = ({ items, onClose }: TextNavBarProps & { onClose: () => void }) => {
   return (
@@ -31,32 +32,33 @@ const MobileElements = ({ items, onClose }: TextNavBarProps & { onClose: () => v
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navItems: TextElement[] = useMemo(
     () => [
       {
         id: 'projects',
-        content: 'PROJECTS',
+        content: t('nav.projects'),
         action: () => {
           console.log('Navigate to Home');
         },
       },
       {
         id: 'work',
-        content: 'WORK',
+        content: t('nav.work'),
         action: () => {
           console.log('Navigate to Work');
         },
       },
       {
         id: 'about',
-        content: 'ABOUT ME',
+        content: t('nav.about'),
         action: () => {
           console.log('Navigate to About');
         },
       },
     ],
-    []
+    [t]
   );
 
   return (
