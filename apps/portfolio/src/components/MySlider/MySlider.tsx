@@ -7,14 +7,14 @@ const MySlider = () => {
   const projects = useMemo(
     () => [
       {
-        title: t('projects.items1.title'),
-        description: t('projects.items1.description'),
+        title: t('projects.project1.title'),
+        description: t('projects.project1.description'),
         image: 'Eido-480.webp',
         link: 'https://eido-edu.com',
       },
       {
-        title: t('projects.items1.title'),
-        description: t('projects.items2.description'),
+        title: t('projects.project2.title'),
+        description: t('projects.project2.description'),
         image: 'grafana.webp',
       },
     ],

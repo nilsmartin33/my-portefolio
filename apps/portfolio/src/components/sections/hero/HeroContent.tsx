@@ -42,7 +42,7 @@ const HeroContent = () => {
               key={animationKey}
               text={t('hero.intro')}
               className="text-lg sm:text-xl lg:text-2xl font-medium"
-              delay={100}
+              delay={70}
               duration={0.6}
               ease="power3.out"
               splitType="chars"
