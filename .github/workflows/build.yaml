@@ -68,16 +68,15 @@ jobs:
         uses: diillson/auto-pull-request@v1.0.1
         with:
           destination_branch: "main"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: "🚀 DEV → MAIN: Promotion des changements"
           pr_body: |
             ✅ Cette PR a été générée automatiquement suite à un push sur `dev`.
             🔍 Changements détectés dans le portfolio.
             🛠️ Tous les tests et builds sont passés avec succès.
-            
             **Actions effectuées :**
             - ✅ Build du portfolio
             - ✅ Vérification Biome (lint/format)
-            
             Merci de vérifier les changements avant de merger en `main`.
 
   pull-request-to-production:
