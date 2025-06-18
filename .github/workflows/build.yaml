@@ -65,57 +65,40 @@ jobs:
       contents: read
       pull-requests: write
       issues: write
+      actions: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Create Pull Request to main
-        uses: peter-evans/create-pull-request@v5
+        uses: diillson/auto-pull-request@v1.0.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          push-to-fork: false
-          branch: temp-pr-branch-${{ github.run_number }}
-          base: main
-          title: "🚀 DEV → MAIN: Promotion des changements"
-          body: |
+          destination_branch: "main"
+          github_token: ${{ secrets.PAT }}
+          pr_title: "🚀 DEV → MAIN: Promotion des changements"
+          pr_body: |
             ✅ Cette PR a été générée automatiquement suite à un push sur `dev`.
             🔍 Changements détectés dans le portfolio.
             🛠️ Tous les tests et builds sont passés avec succès.
-            
             **Actions effectuées :**
             - ✅ Build du portfolio
             - ✅ Vérification Biome (lint/format)
-            
             Merci de vérifier les changements avant de merger en `main`.
-          delete-branch: true
 
   pull-request-to-production:
     name: Create PR from main to production
     runs-on: ubuntu-latest
     needs: [ build-app ]
     if: success() && github.ref == 'refs/heads/main'
-    permissions:
-      contents: read
-      pull-requests: write
-      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Create Pull Request to production
-        uses: peter-evans/create-pull-request@v5
+        uses: diillson/auto-pull-request@v1.0.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          push-to-fork: false
-          branch: temp-pr-branch-prod-${{ github.run_number }}
-          base: production
-          title: "⚠️ PROD Promotion: main → production"
-          body: |
+          github_token: ${{ secrets.PAT }}
+          destination_branch: "production"
+          pr_title: "⚠️ PROD Promotion: main → production"
+          pr_body: |
             ✅ Cette PR a été générée automatiquement suite à un merge dans `main`.
             🔁 Merci de vérifier les changements avant de merger en `production`.
             🛠️ Si tout est bon, clique sur **"Merge"** pour déployer en production.
-          delete-branch: true
