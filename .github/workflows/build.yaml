@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-app:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     outputs:
       build_portefolio: ${{ steps.check_changes.outputs.build_portefolio }}
       build_portefolio_main: ${{ steps.check_changes_main.outputs.build_portefolio }}
