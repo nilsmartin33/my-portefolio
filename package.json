@@ -4,17 +4,17 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format:fix": "biome format --write .",
+    "lint:fix": "yarn biome lint --write .",
+    "format-lint:fix": "yarn biome check --write .",
+    "format-lint:check": "yarn biome check .",
+    "clean": "turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
+    "@biomejs/biome": "1.9.3",
     "turbo": "^2.5.4"
   },
   "name": "with-vite",
   "packageManager": "yarn@1.22.22",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "workspaces": ["apps/*", "packages/*"]
 }
