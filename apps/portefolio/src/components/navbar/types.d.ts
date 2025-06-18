@@ -1,10 +1,10 @@
-import { JSX } from 'react';
+import type { Theme } from '@/context/types';
+import type { JSX } from 'react';
 
-type actionType = () => void | ((theme: Theme) => void);
+type actionType = undefined | ((theme: Theme) => void);
 
 interface Element {
   id: string;
-  action: actionType;
 }
 
 export interface TextElement extends Element {
@@ -13,6 +13,7 @@ export interface TextElement extends Element {
 
 export interface IconElement extends Element {
   icon: () => JSX.Element;
+  action: actionType;
 }
 
 export interface NavBarProps<T extends Element> {

@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import type { Theme } from '@/context/types';
 import { useTheme } from '@/context/useTheme.tsx';
 import { Languages, Moon, Sun } from 'lucide-react';
 import { useMemo } from 'react';
@@ -17,7 +18,7 @@ const Elements = ({ items }: IconNavBarProps) => {
         <button
           type="button"
           key={`${item.id}-${index}`}
-          onClick={item.action}
+          onClick={() => item.action}
           className={`h-9 flex items-center rounded-md ${item.id === 'language' ? '' : 'p-2'}  hover:bg-accent cursor-pointer`}
         >
           <item.icon />
@@ -72,7 +73,13 @@ const LanguageSwitcher = () => {
 
 const IconNavBar = () => {
   const { theme, setTheme } = useTheme();
-  const selectedTheme = theme === 'light' ? 'dark' : theme === 'dark' ? 'light' : 'system';
+  const themeMapping = {
+    light: 'dark',
+    dark: 'system',
+    system: 'light',
+  };
+
+  const selectedTheme = themeMapping[theme] || 'light';
 
   const navIconItems: IconElement[] = useMemo(
     () => [
@@ -84,7 +91,7 @@ const IconNavBar = () => {
       {
         id: 'theme',
         icon: () => <ThemeIcon theme={theme} />,
-        action: () => setTheme(selectedTheme),
+        action: () => setTheme(selectedTheme as Theme),
       },
     ],
     [theme, selectedTheme, setTheme]

@@ -19,7 +19,6 @@ const MobileElements = ({ items, onClose }: TextNavBarProps & { onClose: () => v
             href={`#${elem.id}`}
             onClick={() => {
               onClose();
-              elem.action();
             }}
           >
             {elem.content}
@@ -39,23 +38,14 @@ const MobileMenu = () => {
       {
         id: 'projects',
         content: t('nav.projects'),
-        action: () => {
-          console.log('Navigate to Home');
-        },
       },
       {
         id: 'work',
         content: t('nav.work'),
-        action: () => {
-          console.log('Navigate to Work');
-        },
       },
       {
         id: 'about',
         content: t('nav.about'),
-        action: () => {
-          console.log('Navigate to About');
-        },
       },
     ],
     [t]

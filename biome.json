@@ -7,7 +7,13 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules/**/*", "*.lock"]
+    "ignore": [
+      "node_modules/**/*",
+      "*.lock",
+      "dist/*",
+      "./apps/portefolio/src/animations",
+      "./apps/portefolio/src/components/ui"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -19,7 +25,7 @@
     "lineWidth": 120,
     "attributePosition": "auto",
     "bracketSpacing": true,
-    "ignore": [".github", ".git"]
+    "ignore": [".github", ".git", ".turbo"]
   },
   "organizeImports": {
     "enabled": true
@@ -94,14 +100,14 @@
   },
   "overrides": [
     {
-      "include": ["./src/**/*"],
+      "include": ["./apps/portefolio/**/*"],
       "linter": {
         "rules": {
           "style": {
             "useFilenamingConvention": {
               "level": "warn",
               "options": {
-                "filenameCases": ["kebab-case"],
+                "filenameCases": ["PascalCase"],
                 "requireAscii": true
               }
             }
