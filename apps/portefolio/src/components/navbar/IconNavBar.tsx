@@ -55,7 +55,7 @@ const LanguageSwitcher = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="p-2">
+      <DropdownMenuTrigger className="p-2 cursor-pointer">
         <Languages className="h-5 w-5">
           <title>Language Icon</title>
         </Languages>
