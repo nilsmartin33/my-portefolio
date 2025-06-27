@@ -13,20 +13,29 @@ import { useTranslation } from 'react-i18next';
 const Elements = ({ items }: IconNavBarProps) => {
   return (
     <div className="flex flex-row items-center justify-center gap-[16px]">
-      {items.map((item, index) => (
-        <button
-          type="button"
-          key={`${item.id}-${index}`}
-          onClick={() => {
-            if (item.action) {
-              item.action();
-            }
-          }}
-          className={`h-9 flex items-center rounded-md ${item.id === 'language' ? '' : 'p-2'}  hover:bg-accent cursor-pointer`}
-        >
-          <item.icon />
-        </button>
-      ))}
+      {items.map((item, index) => {
+        if (item.type === 'dropdown') {
+          return (
+            <div key={`${item.id}-${index}`}>
+              <item.icon />
+            </div>
+          );
+        }
+        return (
+          <button
+            type="button"
+            key={`${item.id}-${index}`}
+            onClick={() => {
+              if (item.action) {
+                item.action();
+              }
+            }}
+            className="h-9 flex items-center rounded-md p-2 hover:bg-accent cursor-pointer"
+          >
+            <item.icon />
+          </button>
+        );
+      })}
     </div>
   );
 };
@@ -55,7 +64,7 @@ const LanguageSwitcher = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="p-2 cursor-pointer">
+      <DropdownMenuTrigger className="h-9 flex items-center rounded-md p-2 hover:bg-accent cursor-pointer focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none">
         <Languages className="h-5 w-5">
           <title>Language Icon</title>
         </Languages>
@@ -77,6 +86,7 @@ const IconNavBar = () => {
     () => [
       {
         id: 'language',
+        type: 'dropdown',
         icon: () => <LanguageSwitcher />,
       },
       {
