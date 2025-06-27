@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+    <url>
+        <loc>https://nils-martin.netlify.app/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" href="https://nils-martin.netlify.app/#home" />
+        <xhtml:link rel="alternate" href="https://nils-martin.netlify.app/#about" />
+        <xhtml:link rel="alternate" href="https://nils-martin.netlify.app/#projects" />
+        <xhtml:link rel="alternate" href="https://nils-martin.netlify.app/#work" />
+    </url>
+</urlset>

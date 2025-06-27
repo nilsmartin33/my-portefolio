@@ -11,6 +11,7 @@ export interface TextElement extends Element {
 export interface IconElement extends Element {
   icon: () => JSX.Element;
   action?: () => void;
+  type?: 'dropdown' | 'button';
 }
 
 export interface NavBarProps<T extends Element> {

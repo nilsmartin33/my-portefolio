@@ -51,7 +51,7 @@ const HeroContent = () => {
               threshold={0.1}
               rootMargin="-100px"
               textAlign="start"
-              onLetterAnimationComplete={() => console.log('finished')}
+              onLetterAnimationComplete={() => {}}
             />
           )}
         </div>
